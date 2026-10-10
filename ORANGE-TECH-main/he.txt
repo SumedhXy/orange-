@@ -1,0 +1,44 @@
+1. Introduction
+Managing large orange orchards requires regular monitoring of crop condition, pest and disease incidence, fruit development and other field conditions. Conventional monitoring depends significantly on physical field inspection and manual intervention, making frequent monitoring across large orchard areas difficult and time-consuming.
+
+ICAR identifies drones, sensors, IoT, AI/ML and geo-informatics as technologies with potential for precision agriculture, including crop monitoring, pest and disease assessment and precision input application.
+
+2. Context
+ICAR has demonstrated the use of agricultural drones for crop-health assessment and real-time monitoring of weeds, diseases and insect infestations over large areas, along with precision spraying for targeted crop protection.
+
+ICAR research and initiatives have also demonstrated the application of AI-based image analysis for identifying crop stresses and providing management recommendations, indicating the potential for AI-enabled agricultural decision-support systems.
+
+Drone-based spraying has additionally been demonstrated by ICAR institutions, with reported benefits including improved application efficiency, reduced operational time and reduced exposure of farm workers to agricultural chemicals.
+
+The opportunity is to integrate AI-based crop monitoring, orchard mapping, data-driven alerts and precision operations into a cost-effective system specifically adapted to large orange orchards in Vidarbha.
+
+3. How Might We...
+How might we develop a cost-effective AI-enabled system for large orange orchards that can autonomously monitor crop conditions, detect potential pest, disease and crop-health issues, provide timely actionable information, and support precision spraying and routine monitoring while reducing dependence on manual labour?
+
+4. Technical Requirements
+The solution should consider:
+
+Large-area monitoring: Efficiently monitor large orange orchards using drones, ground-based systems, fixed sensors or a combination of these technologies.
+AI-based crop monitoring: Analyse images and/or sensor data to identify visible indicators of pests, diseases, crop stress and fruit development.
+Orchard mapping: Generate location-based information identifying affected trees, plants or orchard zones.
+Periodic data collection: Enable systematic monitoring at suitable intervals to identify changes in crop condition over time.
+Early detection: Identify potential crop-health problems at an early stage and distinguish normal crop variation from conditions requiring attention.
+Actionable alerts: Convert monitoring data into simple, location-specific alerts or recommendations that farmers can understand and act upon.
+Precision spraying: Support targeted application of pesticides or other inputs based on detected conditions, where technically and agronomically appropriate.
+Automation: Minimize manual intervention in repetitive monitoring and operational tasks while retaining operator control over critical actions.
+Farmer interface: Provide information through a simple mobile application, dashboard or other accessible interface.
+Low operating cost: Minimize recurring costs related to manpower, data collection, equipment operation and maintenance.
+Local adaptability: Account for the canopy structure, orchard conditions and farming practices of orange-growing regions in Vidarbha.
+Human-in-the-loop operation: Allow farmers or trained operators to verify AI-generated alerts and approve critical interventions before execution.
+5. Success Metrics
+Area coverage: Orchard area that can be monitored per hour/day.
+Detection performance: Accuracy and reliability of identifying selected pest, disease or crop-health conditions.
+Early-warning capability: Time between emergence/detection of a target condition and generation of an alert.
+Monitoring efficiency: Reduction in time required for routine orchard inspection compared with conventional manual monitoring.
+Labour requirement: Reduction in manpower hours required for monitoring and spraying activities.
+Spraying efficiency: Reduction in pesticide/water use or improvement in targeted application compared with conventional spraying, where applicable.
+Response time: Time from detection of an issue to delivery of an actionable recommendation.
+Automation level: Proportion of routine monitoring and operational tasks completed with minimal manual intervention.
+Cost: Total system cost and recurring operating cost per acre/hectare.
+Farmer usability: Ease with which farmers or operators can understand alerts and act on recommendations.
+Field validation: Successful demonstration of the system under representative orange orchard conditions in Vidarbha.

@@ -1,0 +1,150 @@
+================================================================================
+PROBLEM STATEMENT: AI-ENABLED PRECISION MONITORING & TARGETED INTERVENTION 
+SYSTEM FOR LARGE ORANGE ORCHARDS IN VIDARBHA (GROUND-LEVEL VISION & IOT)
+================================================================================
+
+1. EXECUTIVE CONTEXT & BACKGROUND
+--------------------------------------------------------------------------------
+The Vidarbha region of Maharashtra (Nagpur, Amravati, Wardha, Katol, Kalmeshwar, 
+Morshi, and Warud belts) is the premier hub for Nagpur Mandarin (Citrus reticulata 
+Blanco) cultivation. Orchards typically span 10 to 50+ acres with tree spacing 
+arranged in square grids (typically 5m x 5m or 6m x 6m).
+
+Despite strong market demand, citrus growers in Vidarbha face an agronomic 
+crisis termed "Citrus Decline". Orchards suffer from devastating pest infestations, 
+fungal bark infections, micronutrient deficiencies, and severe heat/moisture stress.
+
+Conventional management relies on manual visual inspections by farm laborers walking 
+rows of thousands of trees. This process is slow, expensive, subjective, and 
+fails to detect early-stage infections before they become widespread. Consequently, 
+growers resort to blanket chemical spraying, driving up input costs, inducing pest 
+resistance, and polluting groundwater.
+
+
+2. THE CRITICAL BOTANICAL & MONITORING BOTTLENECK
+--------------------------------------------------------------------------------
+Aerial monitoring tools (such as top-down drones) face fundamental physical and 
+pathological limitations in citrus orchards:
+1. Under-Leaf Habitat of Sucking Pests:
+   - Key pests—such as Asian Citrus Psylla (Diaphorina citri, the vector for greening), 
+     Citrus Blackfly/Whitefly, and Leaf Miners—lay eggs and feed strictly on the 
+     UNDERSIDE of young leaves and inside inner canopies. Top-down aerial views 
+     cannot detect these pests until secondary symptoms (defoliation) appear.
+2. Trunk-Level Pathologies:
+   - Phytophthora Gummosis (Foot Rot)—the leading tree killer in Vidarbha—originates 
+     at the trunk collar (0–30 cm above ground level). Dense spherical orange canopies 
+     completely obscure the trunk from above.
+3. Drone Economics & Heat Constraints:
+   - High capital costs (₹6L–15L+), licensed pilot requirements, battery degradation 
+     in 45°C Vidarbha summers, and lack of spray penetration make drones unviable for 
+     routine small-to-medium grower adoption.
+
+Therefore, the system MUST prioritize Ground-Level Multi-Angle Optical Sensing, 
+Automated IoT Trapping, and Mobile Precision Diagnostics.
+
+
+3. CORE OBJECTIVES & PROBLEM SCOPE
+--------------------------------------------------------------------------------
+Develop a low-cost, ground-enabled, AI-driven cyber-physical system for large 
+Vidarbha orange orchards that can:
+1. Monitor individual tree foliage (including leaf undersides) and trunk collars 
+   without aerial drone dependencies.
+2. Detect potential pests (Psylla, Whitefly, Leaf Miner), diseases (Gummosis, Canker, 
+   Greening/HLB), and physiological stress at an early stage.
+3. Precisely locate and index every tree to eliminate GPS drift misidentifications.
+4. Track historical health deterioration through periodic scans across flowering cycles.
+5. Generate actionable, localized alerts and treatment recommendations in Marathi and Hindi.
+6. Support targeted, precision interventions (spot spraying / trunk paste applications) 
+   to slash chemical use and manual labor.
+
+
+4. SPECIFIC PATHOLOGICAL & STRESS CONDITIONS TO TARGET
+--------------------------------------------------------------------------------
+Based on guidelines from ICAR - Central Citrus Research Institute (ICAR-CCRI, Nagpur):
+
+A. Sucking Pests & Vectors (Under-Leaf & Foliage):
+   - Asian Citrus Psylla (Diaphorina citri): Nymphs on tender leaf undersides; HLB vector.
+   - Citrus Blackfly / Whitefly (Aleurocanthus woglumi): Nymph colonies and sooty mold.
+   - Citrus Leaf Miner (Phyllocnistis citrella): Serpentine mines on lower leaf surfaces.
+   - Fruit Sucking Moth: Punctures fruit during evening/night hours.
+
+B. Trunk Collar & Soil-Borne Pathologies:
+   - Phytophthora Gummosis & Foot Rot: Water-soaked bark lesions, oozing brown gum, 
+     and bark splitting at the lower trunk collar.
+
+C. Foliar, Branch & Systemic Pathologies:
+   - Citrus Canker (Xanthomonas citri): Raised corky lesions with water-soaked halos.
+   - Citrus Greening (HLB): Asymmetric blotchy mottle, vein corking, chlorosis.
+   - Dieback (Twig Blight): Drying of twigs from outer branches inwards.
+
+D. Nutritional & Physiological Stresses:
+   - Iron (Fe) & Zinc (Zn) Chlorosis: Interveinal yellowing on alkaline black cotton soils.
+   - Severe Heat & Moisture Stress: Leaf curling and wilting in 45°C+ summer conditions.
+
+
+5. DETAILED FUNCTIONAL REQUIREMENTS
+--------------------------------------------------------------------------------
+1. Ground-Level Multi-Angle Optical Scanning:
+   - Capture high-resolution imagery of:
+     a) Leaf undersides and inner canopy foliage.
+     b) Trunk collars and ground graft unions.
+   - Capable of being mounted on existing orchard machinery (tractors, power-tillers, 
+     or small ground rovers) used during routine orchard operations (rotavating, weeding).
+
+2. Automated Pest Population Surveillance (Smart IoT Traps):
+   - Fixed, low-cost solar-powered optical traps (yellow sticky/pheromone) deployed 
+     across orchard blocks to detect insect surges (Psylla, Fruit Flies) before 
+     visible canopy symptoms emerge.
+
+3. Tree-Level Geospatial Location Mapping:
+   - Overcome consumer GPS drift (±3 to 5m) using combined GPS + wheel odometry or 
+     optical tree-counter indexing.
+   - Ensure 100% accurate tree identification (e.g., Block B, Row 04, Tree 18).
+
+4. Periodic Health Comparison & Risk Stratification:
+   - Compare scans across 15-day/30-day intervals to identify dynamic deterioration.
+   - Classify trees into:
+     * Healthy (Green)
+     * Mild Stress / Monitor (Yellow)
+     * High Risk / Pest Infested (Orange)
+     * Critical / Gummosis or Severe Dieback (Red)
+
+5. Actionable Vernacular Alerts (Marathi & Hindi):
+   - Deliver push notifications/WhatsApp advisories detailing:
+     * Exact Tree/Row Location.
+     * Detected Pest/Disease & Confidence Score.
+     * ICAR-CCRI approved chemical, bio-agent, or cultural remedy.
+
+6. Precision Targeted Intervention:
+   - Guide tractor-mounted spot-sprayers (solenoid nozzle control) or manual crews 
+     directly to tagged trees, reducing pesticide consumption by >=65%.
+
+7. Offline & Rural-Resilient Architecture:
+   - Zero dependence on cloud upload or rural 4G during scanning.
+   - Local edge inference (in-cabin or on-device) completes analysis in real time.
+
+8. Low-Cost Scalability:
+   - Hardware rig cost under ₹35,000 (accessible to individual growers or FPOs).
+   - Zero additional labor required if integrated into existing tractor passes.
+
+
+6. OPERATIONAL WORKFLOW
+--------------------------------------------------------------------------------
+   [1. MONITOR]  ──► [2. DETECT]  ──► [3. LOCATE]   ──► [4. MARK / TRACK]
+   (Tractor Cam +     (Edge AI on      (GPS + Row-Tree  (Tree Health Ledger
+    Smart IoT Traps)   Trunk/Leaves)    Odometry)        History)
+         ▲                                                     │
+         │                                                     ▼
+   [8. CONTINUOUS] ◄── [7. INTERVENE] ◄── [6. VERIFY] ◄── [5. ALERT FARMER]
+         LOOP            (Targeted Mist    (Scout App      (WhatsApp Alert
+                          Spray / Paste)    Approval)       in Marathi)
+
+
+7. SUCCESS BENCHMARKS
+--------------------------------------------------------------------------------
+- Hardware System Cost: Under ₹35,000 for orchard rig; under ₹2,500 per IoT trap.
+- Under-Leaf & Trunk Pathology Recall: >= 88% detection accuracy for Gummosis and Psylla.
+- Tree Geolocation Precision: Zero wrong-tree indexing errors.
+- Chemical Savings: >= 65% reduction in pesticide/fungicide volumes compared to blanket sprays.
+- Operational Overhead: Zero additional tractor passes (runs concurrently with routine weeding).
+================================================================================

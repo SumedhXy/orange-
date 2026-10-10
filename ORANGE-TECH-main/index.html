@@ -1,0 +1,2104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CITRUS-TERRA AI • Ground-Level Tractor Vision & Precision Spot-Spraying Cockpit</title>
+  
+  <!-- Premium Fonts: Plus Jakarta Sans (Display), Inter (Interface), Geist Mono (Telemetry) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+
+  <style>
+    /* =========================================================================
+       ORGANIC CITRUS DESIGN SYSTEM (CURVED, PREMIUM & ANTI-SLOP)
+       Smooth Radii • Warm Peach & Burnt Ember • Frosted Glassmorphic Depth
+       ========================================================================= */
+    :root {
+      /* Backgrounds & Canvas */
+      --canvas: #F8F9FA;
+      --canvas-mesh: radial-gradient(at 0% 0%, rgba(255, 237, 213, 0.45) 0px, transparent 50%),
+                         radial-gradient(at 100% 0%, rgba(220, 252, 231, 0.45) 0px, transparent 50%),
+                         #F8F9FA;
+      --surface: #FFFFFF;
+      --surface-glass: rgba(255, 255, 255, 0.88);
+      --surface-subtle: #F1F3F5;
+      --surface-card: #FCFDFD;
+      --hover-surface: #F8F9FA;
+
+      /* Borders & Lines */
+      --border: rgba(0, 0, 0, 0.08);
+      --border-subtle: rgba(0, 0, 0, 0.04);
+      --border-hover: rgba(194, 65, 12, 0.35);
+
+      /* Ink & Typography */
+      --ink-hero: #0F172A;
+      --ink: #1E293B;
+      --ink-body: #475569;
+      --ink-muted: #64748B;
+      --ink-faint: #94A3B8;
+
+      /* Nagpur Orange Brand Identity */
+      --orange-primary: #C2410C;
+      --orange-hover: #9A3412;
+      --orange-active: #7C2D12;
+      --orange-light: #EA580C;
+      --orange-glow: rgba(194, 65, 12, 0.2);
+      --orange-tint: #FFF7ED;
+      --orange-soft: #FED7AA;
+      --orange-ring: #FB923C;
+
+      /* Status Colors */
+      --green-leaf: #16A34A;
+      --green-tint: #DCFCE7;
+      --green-glow: rgba(22, 163, 74, 0.25);
+      
+      --red-alert: #DC2626;
+      --red-tint: #FEE2E2;
+      
+      --amber-warn: #D97706;
+      --amber-tint: #FEF3C7;
+      
+      --blue-tech: #0284C7;
+      --blue-tint: #E0F2FE;
+
+      /* Soft Organic Radii */
+      --radius-sm: 8px;
+      --radius-md: 14px;
+      --radius-lg: 20px;
+      --radius-xl: 26px;
+      --radius-pill: 9999px;
+
+      /* Premium Shadows */
+      --shadow-sm: 0 2px 6px rgba(15, 23, 42, 0.04), 0 1px 2px rgba(15, 23, 42, 0.02);
+      --shadow-md: 0 10px 25px -5px rgba(15, 23, 42, 0.05), 0 8px 10px -6px rgba(15, 23, 42, 0.02);
+      --shadow-lg: 0 20px 35px -8px rgba(15, 23, 42, 0.08), 0 10px 14px -6px rgba(15, 23, 42, 0.03);
+      --shadow-orange: 0 8px 20px -4px rgba(194, 65, 12, 0.3);
+
+      /* Typography */
+      --font-title: 'Plus Jakarta Sans', system-ui, sans-serif;
+      --font-body: 'Inter', system-ui, sans-serif;
+      --font-mono: 'Geist Mono', ui-monospace, monospace;
+    }
+
+    :root[data-theme="dark"] {
+      --canvas: #090A0F;
+      --canvas-mesh: radial-gradient(at 0% 0%, rgba(194, 65, 12, 0.15) 0px, transparent 50%),
+                         radial-gradient(at 100% 0%, rgba(22, 163, 74, 0.1) 0px, transparent 50%),
+                         #090A0F;
+      --surface: #12141C;
+      --surface-glass: rgba(18, 20, 28, 0.88);
+      --surface-subtle: #181B26;
+      --surface-card: #141722;
+      --hover-surface: #1E2232;
+
+      --border: rgba(255, 255, 255, 0.08);
+      --border-subtle: rgba(255, 255, 255, 0.04);
+      --border-hover: rgba(234, 88, 12, 0.4);
+
+      --ink-hero: #F8FAFC;
+      --ink: #F1F5F9;
+      --ink-body: #CBD5E1;
+      --ink-muted: #94A3B8;
+      --ink-faint: #64748B;
+
+      --orange-primary: #EA580C;
+      --orange-hover: #C2410C;
+      --orange-active: #9A3412;
+      --orange-light: #FB923C;
+      --orange-tint: #2B150A;
+      --orange-soft: #7C2D12;
+      --orange-glow: rgba(234, 88, 12, 0.35);
+
+      --green-leaf: #22C55E;
+      --green-tint: #052E16;
+      --red-alert: #EF4444;
+      --red-tint: #450A0A;
+      --amber-warn: #F59E0B;
+      --amber-tint: #451A03;
+      --blue-tech: #38BDF8;
+      --blue-tint: #082F49;
+
+      --shadow-sm: 0 2px 6px rgba(0, 0, 0, 0.4);
+      --shadow-md: 0 10px 25px -5px rgba(0, 0, 0, 0.5);
+      --shadow-lg: 0 20px 35px -8px rgba(0, 0, 0, 0.6);
+      --shadow-orange: 0 8px 20px -4px rgba(234, 88, 12, 0.4);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background: var(--canvas-mesh);
+      background-attachment: fixed;
+      color: var(--ink);
+      font-family: var(--font-body);
+      font-size: 15px;
+      line-height: 1.55;
+      -webkit-font-smoothing: antialiased;
+      min-height: 100dvh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* =========================================================================
+       FLOATING GLASS APPFAR
+       ========================================================================= */
+    .header-nav {
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      max-width: 1460px;
+      width: calc(100% - 32px);
+      margin: 0 auto;
+      background: var(--surface-glass);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .brand-group {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon-bubble {
+      width: 34px;
+      height: 34px;
+      background: linear-gradient(135deg, #EA580C, #C2410C);
+      color: #FFF;
+      border-radius: var(--radius-pill);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: var(--shadow-orange);
+    }
+
+    .brand-text-title {
+      font-family: var(--font-title);
+      font-size: 16px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink-hero);
+    }
+
+    .brand-badge-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      background: var(--orange-tint);
+      color: var(--orange-primary);
+      border-radius: var(--radius-pill);
+      border: 1px solid rgba(194, 65, 12, 0.15);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .live-telemetry-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 5px 12px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--ink);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .pulsing-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--green-leaf);
+      animation: pulse-ring 1.8s infinite;
+    }
+
+    @keyframes pulse-ring {
+      0% { box-shadow: 0 0 0 0 var(--green-glow); }
+      70% { box-shadow: 0 0 0 6px rgba(22, 163, 74, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(22, 163, 74, 0); }
+    }
+
+    /* Modern Soft Buttons */
+    .btn {
+      height: 36px;
+      padding: 0 16px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-body);
+      font-size: 13px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      cursor: pointer;
+      border: 1px solid transparent;
+      transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      white-space: nowrap;
+      user-select: none;
+    }
+
+    .btn:active {
+      transform: scale(0.97);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #EA580C, #C2410C);
+      color: #FFFFFF;
+      box-shadow: var(--shadow-orange);
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #F97316, #EA580C);
+      transform: translateY(-1px);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+    .btn-secondary:hover {
+      border-color: var(--orange-primary);
+      color: var(--orange-primary);
+      background: var(--hover-surface);
+      transform: translateY(-1px);
+    }
+
+    .btn-sm {
+      height: 30px;
+      padding: 0 12px;
+      font-size: 12px;
+    }
+
+    /* =========================================================================
+       HERO ORCHARD SHOWCASE (Curved Architectural Frame)
+       ========================================================================= */
+    .hero-stage {
+      max-width: 1460px;
+      width: calc(100% - 32px);
+      margin: 18px auto 0 auto;
+      border-radius: var(--radius-xl);
+      background: var(--surface);
+      border: 1px solid var(--border);
+      overflow: hidden;
+      box-shadow: var(--shadow-md);
+      position: relative;
+    }
+
+    .hero-banner-art {
+      width: 100%;
+      height: 270px;
+      object-fit: cover;
+      object-position: center 38%;
+      display: block;
+      filter: saturate(1.06) contrast(1.02);
+    }
+
+    .hero-scrim-mask {
+      position: absolute;
+      inset: 0;
+      height: 270px;
+      background: linear-gradient(180deg, 
+        rgba(15, 23, 42, 0.05) 0%, 
+        rgba(15, 23, 42, 0.4) 40%, 
+        var(--surface) 100%
+      );
+      pointer-events: none;
+    }
+
+    :root[data-theme="dark"] .hero-scrim-mask {
+      background: linear-gradient(180deg, 
+        rgba(9, 10, 15, 0.2) 0%, 
+        rgba(9, 10, 15, 0.6) 40%, 
+        var(--surface) 100%
+      );
+    }
+
+    .hero-body-content {
+      margin-top: -115px;
+      padding: 0 36px 32px 36px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-chips-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      flex-wrap: wrap;
+    }
+
+    .hero-pill {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 5px 12px;
+      background: var(--surface-glass);
+      backdrop-filter: blur(10px);
+      border: 1px solid var(--border);
+      color: var(--ink);
+      border-radius: var(--radius-pill);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .hero-pill.orange {
+      background: var(--orange-tint);
+      border-color: rgba(194, 65, 12, 0.25);
+      color: var(--orange-primary);
+    }
+
+    .hero-layout-split {
+      display: grid;
+      grid-template-columns: 1fr 430px;
+      gap: 32px;
+      align-items: end;
+    }
+
+    .hero-main-title {
+      font-family: var(--font-title);
+      font-size: 38px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.14;
+      color: var(--ink-hero);
+      margin-bottom: 10px;
+    }
+
+    .hero-main-desc {
+      font-size: 15.5px;
+      color: var(--ink-body);
+      max-width: 66ch;
+      line-height: 1.6;
+    }
+
+    /* Floating Tactical Deck */
+    .tactical-floating-card {
+      background: var(--surface-glass);
+      backdrop-filter: blur(14px);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 18px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-md);
+    }
+
+    .deck-top-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 10px;
+    }
+
+    .deck-title-text {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .deck-btn-cluster {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    /* =========================================================================
+       KPI METRIC CARDS (Curved Islands)
+       ========================================================================= */
+    .kpi-deck-wrapper {
+      max-width: 1460px;
+      width: calc(100% - 32px);
+      margin: 20px auto 0 auto;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr 1.1fr;
+      gap: 16px;
+    }
+
+    .kpi-bubble-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+      transition: all 200ms ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .kpi-bubble-card::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: transparent;
+      transition: background 200ms;
+    }
+
+    .kpi-bubble-card:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+      border-color: var(--border-hover);
+    }
+
+    .kpi-bubble-card.hero-kpi::after {
+      background: linear-gradient(90deg, #EA580C, #F97316);
+    }
+
+    .kpi-top-label {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    .kpi-hero-number {
+      font-family: var(--font-title);
+      font-size: 42px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--orange-primary);
+      line-height: 1.1;
+      margin: 8px 0 4px 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-regular-number {
+      font-family: var(--font-mono);
+      font-size: 24px;
+      font-weight: 700;
+      letter-spacing: -0.01em;
+      color: var(--ink-hero);
+      line-height: 1.2;
+      margin: 8px 0 4px 0;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .kpi-footnote {
+      font-size: 13px;
+      color: var(--ink-body);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    /* =========================================================================
+       ROUNDED PILL TAB NAVIGATION
+       ========================================================================= */
+    .tab-bar-deck {
+      max-width: 1460px;
+      width: calc(100% - 32px);
+      margin: 20px auto 0 auto;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 6px;
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tab-pill-btn {
+      height: 42px;
+      padding: 0 20px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 12.5px;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--ink-body);
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      white-space: nowrap;
+      transition: all 160ms ease;
+    }
+
+    .tab-pill-btn:hover {
+      background: var(--surface-subtle);
+      color: var(--ink-hero);
+    }
+
+    .tab-pill-btn[aria-selected="true"] {
+      background: var(--orange-tint);
+      color: var(--orange-primary);
+      font-weight: 700;
+      box-shadow: 0 2px 8px rgba(194, 65, 12, 0.12);
+    }
+
+    /* =========================================================================
+       MAIN WORKSPACE PANELS (Curved Layout)
+       ========================================================================= */
+    main {
+      max-width: 1460px;
+      width: calc(100% - 32px);
+      margin: 20px auto 60px auto;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .tab-view-container {
+      display: none;
+      flex-direction: column;
+      gap: 20px;
+    }
+    .tab-view-container.active {
+      display: flex;
+    }
+
+    .curved-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      padding: 24px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .card-title-bar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid var(--border-subtle);
+      padding-bottom: 14px;
+    }
+
+    .card-title-heading {
+      font-family: var(--font-title);
+      font-size: 18px;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      color: var(--ink-hero);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .cockpit-asym-grid {
+      display: grid;
+      grid-template-columns: 2fr 1.05fr;
+      gap: 20px;
+    }
+
+    /* =========================================================================
+       ORGANIC ORCHARD GIS MATRIX (Curved Squircles)
+       ========================================================================= */
+    .gis-legend-row {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink-body);
+      flex-wrap: wrap;
+    }
+
+    .legend-indicator-dot {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .legend-color-squircle {
+      width: 14px;
+      height: 14px;
+      border-radius: var(--radius-sm);
+    }
+
+    .orchard-soil-pad {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .orchard-row-lane {
+      display: grid;
+      grid-template-columns: 85px 1fr;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .row-lane-badge {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--ink-muted);
+      background: var(--surface);
+      padding: 4px 8px;
+      border-radius: var(--radius-pill);
+      text-align: center;
+      border: 1px solid var(--border);
+    }
+
+    .trees-strip-lane {
+      display: grid;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 8px;
+    }
+
+    .tree-squircle-node {
+      aspect-ratio: 1;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 600;
+      color: var(--ink-body);
+      cursor: pointer;
+      position: relative;
+      transition: all 160ms cubic-bezier(0.16, 1, 0.3, 1);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .tree-squircle-node:hover {
+      border-color: var(--orange-primary);
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: var(--shadow-md);
+    }
+
+    .tree-squircle-node.healthy {
+      background: rgba(22, 163, 74, 0.08);
+      border-color: rgba(22, 163, 74, 0.3);
+      color: var(--green-leaf);
+    }
+
+    .tree-squircle-node.infected {
+      background: rgba(220, 38, 38, 0.12);
+      border-color: var(--red-alert);
+      color: var(--red-alert);
+      font-weight: 800;
+      animation: pulse-danger 1.5s infinite;
+    }
+
+    @keyframes pulse-danger {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.4); }
+      50% { box-shadow: 0 0 0 6px rgba(220, 38, 38, 0); }
+    }
+
+    .tree-squircle-node.tractor-on {
+      border-color: var(--orange-primary);
+      background: var(--orange-tint);
+      box-shadow: 0 0 0 3px var(--orange-primary);
+      color: var(--orange-primary);
+      font-weight: 800;
+    }
+
+    .tree-squircle-node.tractor-on::before {
+      content: "🚜";
+      position: absolute;
+      top: -14px;
+      font-size: 14px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+
+    /* Mini Tree Details Tooltip Bar */
+    .tree-dossier-pill {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-pill);
+      padding: 10px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      color: var(--ink);
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* =========================================================================
+       DUAL AI VISION STREAMS (Curved Sensor Screens & Filter Switchers)
+       ========================================================================= */
+    .cams-grid-duo {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .sensor-view-card {
+      background: #090A0F;
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      box-shadow: var(--shadow-md);
+    }
+
+    .sensor-topbar {
+      background: #12141C;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 600;
+      color: #E2E8F0;
+    }
+
+    .sensor-stage {
+      height: 200px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #000;
+    }
+
+    .sensor-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: filter 240ms ease;
+    }
+
+    .sensor-img.thermal-mode {
+      filter: contrast(1.8) hue-rotate(190deg) saturate(2.4) invert(0.1);
+    }
+
+    .sensor-img.edge-mode {
+      filter: contrast(2.5) grayscale(1) invert(1);
+    }
+
+    .scanline-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, 
+        transparent 0%, 
+        rgba(234, 88, 12, 0.18) 50%, 
+        transparent 100%
+      );
+      height: 30%;
+      pointer-events: none;
+      animation: scan-pass 2.8s linear infinite;
+    }
+
+    @keyframes scan-pass {
+      0% { top: -30%; }
+      100% { top: 100%; }
+    }
+
+    .laser-hud-reticle {
+      position: absolute;
+      border: 2px solid var(--orange-primary);
+      border-radius: var(--radius-sm);
+      background: rgba(194, 65, 12, 0.2);
+      pointer-events: none;
+      transition: all 200ms ease;
+    }
+
+    .hud-tag-pill {
+      position: absolute;
+      top: -24px;
+      left: 0;
+      background: var(--orange-primary);
+      color: #FFF;
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: var(--radius-pill);
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+
+    .sensor-filter-bar {
+      background: #12141C;
+      padding: 6px 10px;
+      display: flex;
+      gap: 6px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .filter-btn-pill {
+      background: rgba(255,255,255,0.08);
+      border: none;
+      color: #CBD5E1;
+      padding: 3px 8px;
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 10px;
+      cursor: pointer;
+      transition: all 140ms;
+    }
+    .filter-btn-pill:hover, .filter-btn-pill.active {
+      background: var(--orange-primary);
+      color: #FFF;
+    }
+
+    /* =========================================================================
+       ACTUATOR MANIFOLD & FLUID MIST CANVAS
+       ========================================================================= */
+    .actuator-soft-box {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .actuator-status-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .fluid-spray-canvas {
+      width: 100%;
+      height: 56px;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      display: block;
+    }
+
+    /* Tank Level Gauge */
+    .tank-reservoir-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-md);
+      padding: 12px 14px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .tank-track {
+      width: 100%;
+      height: 8px;
+      background: var(--surface-subtle);
+      border-radius: var(--radius-pill);
+      overflow: hidden;
+    }
+
+    .tank-fill-bar {
+      height: 100%;
+      width: 88%;
+      background: linear-gradient(90deg, #0284C7, #38BDF8);
+      border-radius: var(--radius-pill);
+      transition: width 300ms ease;
+    }
+
+    /* Advisory Bubble */
+    .advisory-bubble-card {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      background: var(--surface);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      box-shadow: var(--shadow-sm);
+    }
+
+    .advisory-text-pad {
+      background: var(--surface-subtle);
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--orange-primary);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      line-height: 1.65;
+      color: var(--ink-hero);
+      white-space: pre-line;
+    }
+
+    /* =========================================================================
+       SPECIFICATION MATRIX TABLE (Ground vs Drone)
+       ========================================================================= */
+    .table-curved-frame {
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--surface);
+    }
+
+    table.styled-matrix {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      text-align: left;
+    }
+
+    table.styled-matrix th {
+      background: var(--surface-subtle);
+      padding: 14px 20px;
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+      border-bottom: 1px solid var(--border);
+    }
+
+    table.styled-matrix td {
+      padding: 16px 20px;
+      border-bottom: 1px solid var(--border-subtle);
+      color: var(--ink-body);
+      vertical-align: middle;
+    }
+
+    table.styled-matrix tr:hover td {
+      background: var(--hover-surface);
+      color: var(--ink-hero);
+    }
+
+    .win-badge-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 4px 10px;
+      background: var(--green-tint);
+      color: var(--green-leaf);
+      border-radius: var(--radius-pill);
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .lose-text {
+      color: var(--red-alert);
+      font-size: 13.5px;
+    }
+
+    /* =========================================================================
+       FINANCIAL ROI CALCULATOR (Soft Sliders & Highlight Banner)
+       ========================================================================= */
+    .roi-grid-asym {
+      display: grid;
+      grid-template-columns: 1.1fr 1fr;
+      gap: 24px;
+    }
+
+    .slider-round-card {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .slider-title-line {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-mono);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      color: var(--ink-muted);
+    }
+
+    input[type=range] {
+      width: 100%;
+      height: 8px;
+      border-radius: var(--radius-pill);
+      accent-color: var(--orange-primary);
+      cursor: pointer;
+    }
+
+    .roi-curved-banner {
+      background: linear-gradient(135deg, var(--orange-tint) 0%, rgba(254, 215, 170, 0.35) 100%);
+      border: 1px solid rgba(194, 65, 12, 0.25);
+      border-radius: var(--radius-xl);
+      padding: 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: var(--shadow-sm);
+    }
+
+    /* =========================================================================
+       MODAL DIALOG (Curved Paper Sheet)
+       ========================================================================= */
+    .modal-backdrop-wrap {
+      position: fixed;
+      inset: 0;
+      background: rgba(15, 23, 42, 0.6);
+      backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 200;
+      padding: 24px;
+    }
+
+    .modal-backdrop-wrap.open {
+      display: flex;
+    }
+
+    .modal-curved-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-xl);
+      max-width: 680px;
+      width: 100%;
+      padding: 32px;
+      box-shadow: var(--shadow-lg);
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid var(--border);
+      background: var(--surface-glass);
+      backdrop-filter: blur(12px);
+      padding: 20px 36px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-mono);
+      font-size: 11.5px;
+      color: var(--ink-muted);
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
+      margin-top: auto;
+    }
+
+    @media (max-width: 1024px) {
+      .hero-layout-split { grid-template-columns: 1fr; }
+      .kpi-deck-wrapper { grid-template-columns: 1fr 1fr; }
+      .cockpit-asym-grid { grid-template-columns: 1fr; }
+      .cams-grid-duo { grid-template-columns: 1fr; }
+      .roi-grid-asym { grid-template-columns: 1fr; }
+      .header-nav, .hero-stage, .kpi-deck-wrapper, .tab-bar-deck, main, footer { width: calc(100% - 24px); }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Floating Island Header Nav (Pill Rounded) -->
+  <nav class="header-nav">
+    <div class="brand-group">
+      <div class="brand-icon-bubble">🍊</div>
+      <span class="brand-text-title">CITRUS-TERRA AI</span>
+      <span class="brand-badge-pill">NAGPUR MANDARIN • VIDARBHA</span>
+    </div>
+
+    <div class="header-actions">
+      <div class="live-telemetry-pill">
+        <span class="pulsing-dot"></span>
+        <span>JETSON ORIN: 14.1ms</span>
+      </div>
+      <button class="btn btn-secondary btn-sm" id="btnAudioFX">🔊 AUDIO FX</button>
+      <button class="btn btn-secondary btn-sm" id="btnVoiceAnnounce">🗣️ VOICE BRIEF</button>
+      <button class="btn btn-secondary btn-sm" id="btnThemeToggle">☀️ / 🌙 THEME</button>
+      <button class="btn btn-secondary btn-sm" id="btnLangToggle">मराठी / EN</button>
+    </div>
+  </nav>
+
+  <!-- Hero Orchard Showcase (Curved Frame with Pixel-Art Banner) -->
+  <div class="hero-stage">
+    <img class="hero-banner-art" src="orange_farm_banner.jpg" alt="Nagpur Mandarin Orange Farm Landscape with Tractor and Canal">
+    <div class="hero-scrim-mask"></div>
+
+    <div class="hero-body-content">
+      <div class="hero-chips-row">
+        <span class="hero-pill orange">PASS 03 • KATOL ORCHARD SCOUT</span>
+        <span class="hero-pill">GRID 5M × 5M DETERMINISTIC</span>
+        <span class="hero-pill">🌡️ 38.5°C • UV 8.4 • SOIL 32%</span>
+        <div class="live-telemetry-pill" style="box-shadow: none;">
+          <span class="pulsing-dot"></span>
+          <span>TRACTOR: 6.2 KM/H • ROW 04</span>
+        </div>
+      </div>
+
+      <div class="hero-layout-split">
+        <div>
+          <h1 class="hero-main-title">Ground-Level Tractor Vision & Precision Spot-Spraying</h1>
+          <p class="hero-main-desc">
+            Non-drone cyber-physical architecture for Nagpur Mandarin (<em>Citrus reticulata</em>) orchards in Vidarbha. Dual-angle under-leaf pest detection and 0–40 cm trunk collar gummosis inspection with zero GPS drift.
+          </p>
+        </div>
+
+        <div class="tactical-floating-card">
+          <div class="deck-top-row">
+            <span class="deck-title-text">Tactical Pass Controls</span>
+            <span class="hero-pill orange" id="lblDeckStatus" style="font-size: 10px; padding: 2px 8px;">AUTO-SCOUT ACTIVE</span>
+          </div>
+          <div class="deck-btn-cluster">
+            <button class="btn btn-primary btn-sm" id="btnPlayPause">⏸️ Pause Run</button>
+            <button class="btn btn-secondary btn-sm" id="btnSimGummosis">🚨 Gummosis</button>
+            <button class="btn btn-secondary btn-sm" id="btnSimPsylla">🪲 Psylla</button>
+            <button class="btn btn-secondary btn-sm" id="btnNextTree">⏩ Next Tree</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Connected KPI Bubble Cards Deck -->
+  <div class="kpi-deck-wrapper">
+    <div class="kpi-bubble-card hero-kpi">
+      <div class="kpi-top-label">
+        <span>Chemical Volume Saved</span>
+        <span class="brand-badge-pill">SPOT SAVINGS</span>
+      </div>
+      <div class="kpi-hero-number"><span id="valChemSaved">72.4</span>%</div>
+      <div class="kpi-footnote">
+        <span class="pulsing-dot"></span>
+        <span>142.8 Liters Retained vs Blanket Spraying</span>
+      </div>
+    </div>
+
+    <div class="kpi-bubble-card">
+      <div class="kpi-top-label">
+        <span>Active Tree Coordinate</span>
+        <span>SPATIAL ODOMETRY</span>
+      </div>
+      <div class="kpi-regular-number" id="valActiveCoord">BLK_B_R04_T012</div>
+      <div class="kpi-footnote">Sub-Meter Optical Index (Zero Drift)</div>
+    </div>
+
+    <div class="kpi-bubble-card">
+      <div class="kpi-top-label">
+        <span>Traversed Distance</span>
+        <span>ENCODER</span>
+      </div>
+      <div class="kpi-regular-number"><span id="valDistance">60.0</span> <span style="font-size: 14px; font-weight: 500; color: var(--ink-muted);">METERS</span></div>
+      <div class="kpi-footnote">Row 04 In Progress • 5m Spacing</div>
+    </div>
+
+    <div class="kpi-bubble-card">
+      <div class="kpi-top-label">
+        <span>Infections Intervened</span>
+        <span style="color: var(--red-alert);">SPOT DOSES</span>
+      </div>
+      <div class="kpi-regular-number"><span id="valInfections" style="color: var(--red-alert);">4</span> <span style="font-size: 14px; font-weight: 500; color: var(--ink-muted);">/ 48 TREES</span></div>
+      <div class="kpi-footnote">1.5s (45ml) Solenoid Pulses</div>
+    </div>
+  </div>
+
+  <!-- Pill Tab Bar Navigation -->
+  <div class="tab-bar-deck" role="tablist">
+    <button class="tab-pill-btn" role="tab" aria-selected="true" data-tab="cockpit">🎛️ COCKPIT OVERVIEW</button>
+    <button class="tab-pill-btn" role="tab" aria-selected="false" data-tab="ai-lab">🔬 DUAL AI VISION LAB</button>
+    <button class="tab-pill-btn" role="tab" aria-selected="false" data-tab="ground-drone">⚖️ GROUND VS DRONE MATRIX</button>
+    <button class="tab-pill-btn" role="tab" aria-selected="false" data-tab="roi-calc">💰 FINANCIAL ROI CALCULATOR</button>
+  </div>
+
+  <!-- Main Content Workspace -->
+  <main>
+
+    <!-- =========================================================================
+         TAB 1: COCKPIT OVERVIEW (GIS Map, Dual Live Feeds & Solenoid Actuator)
+         ========================================================================= -->
+    <div class="tab-view-container active" id="pane-cockpit">
+      
+      <div class="cockpit-asym-grid">
+        
+        <!-- Left Side: 2D GIS Map & Dual Camera Feeds -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <!-- 2D Sub-Meter GIS Orchard Matrix -->
+          <div class="curved-card">
+            <div class="card-title-bar">
+              <div class="card-title-heading">
+                <span>🗺️ Sub-Meter Orchard GIS Matrix</span>
+              </div>
+              <span class="hero-pill">Katol Block B • 4 Rows × 12 Trees</span>
+            </div>
+
+            <div class="gis-legend-row">
+              <div class="legend-indicator-dot">
+                <div class="legend-color-squircle" style="background: rgba(22, 163, 74, 0.15); border: 1px solid var(--green-leaf);"></div>
+                <span>Healthy (Spray Skipped • 0ml)</span>
+              </div>
+              <div class="legend-indicator-dot">
+                <div class="legend-color-squircle" style="background: rgba(220, 38, 38, 0.2); border: 1px solid var(--red-alert);"></div>
+                <span>Infected (Spot-Sprayed • 45ml)</span>
+              </div>
+              <div class="legend-indicator-dot">
+                <div class="legend-color-squircle" style="border: 2px solid var(--orange-primary); background: var(--orange-tint);"></div>
+                <span>Tractor Active Index</span>
+              </div>
+            </div>
+
+            <div class="orchard-soil-pad" id="orchardSoilPad">
+              <!-- Dynamically rendered 4x12 orchard grid -->
+            </div>
+
+            <!-- Active Tree Telemetry Dossier Bar -->
+            <div class="tree-dossier-pill">
+              <div>
+                <span style="color: var(--ink-muted);">INSPECTING:</span>
+                <strong id="lblDossierId" style="color: var(--orange-primary); margin-left: 4px;">BLK_B_R04_T012</strong>
+              </div>
+              <div>
+                <span style="color: var(--ink-muted);">HEALTH INDEX:</span>
+                <strong id="lblDossierHealth" style="color: var(--red-alert); margin-left: 4px;">Infected (Gummosis)</strong>
+              </div>
+              <div>
+                <span style="color: var(--ink-muted);">DOSE:</span>
+                <strong id="lblDossierDose" style="margin-left: 4px;">45 mL Delivered</strong>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dual Multi-Angle AI Camera Feeds (Real Photographs with HUD Reticles & Mode Switchers) -->
+          <div class="curved-card">
+            <div class="card-title-bar">
+              <div class="card-title-heading">
+                <span>📹 Multi-Angle Edge Vision Sensor Streams</span>
+              </div>
+              <span class="hero-pill">60 FPS Global-Shutter • TensorRT FP16</span>
+            </div>
+
+            <div class="cams-grid-duo">
+              
+              <!-- Cam 1: Trunk Collar -->
+              <div class="sensor-view-card">
+                <div class="sensor-topbar">
+                  <span>CAM 1: TRUNK COLLAR (-15°)</span>
+                  <span id="cam1StatusBadge" style="color: var(--red-alert); font-weight: 700;">GUMMOSIS DETECTED</span>
+                </div>
+                <div class="sensor-stage">
+                  <img class="sensor-img" id="cam1Img" src="cam_gummosis.jpg" alt="Trunk Collar Gummosis Camera Sensor">
+                  <div class="scanline-overlay"></div>
+                  <div class="laser-hud-reticle" id="cam1Reticle" style="width: 46%; height: 58%; left: 34%; top: 24%;">
+                    <div class="hud-tag-pill" id="cam1ReticleTag">Phytophthora: 94.4%</div>
+                  </div>
+                </div>
+                <div class="sensor-filter-bar">
+                  <span style="font-size: 10px; color: var(--ink-muted); font-family: var(--font-mono); margin-right: 4px; align-self: center;">FILTER:</span>
+                  <button class="filter-btn-pill active" onclick="setCamFilter(1, 'rgb')">RGB</button>
+                  <button class="filter-btn-pill" onclick="setCamFilter(1, 'thermal')">Thermal IR</button>
+                  <button class="filter-btn-pill" onclick="setCamFilter(1, 'edge')">Edge Det</button>
+                </div>
+              </div>
+
+              <!-- Cam 2: Under-Leaf Canopy -->
+              <div class="sensor-view-card">
+                <div class="sensor-topbar">
+                  <span>CAM 2: UNDER-LEAF CANOPY (+30°)</span>
+                  <span id="cam2StatusBadge" style="color: var(--orange-ring); font-weight: 700;">UNDER-LEAF SCAN</span>
+                </div>
+                <div class="sensor-stage">
+                  <img class="sensor-img" id="cam2Img" src="cam_psylla.jpg" alt="Under-Leaf Psylla Camera Sensor">
+                  <div class="scanline-overlay"></div>
+                  <div class="laser-hud-reticle" id="cam2Reticle" style="width: 48%; height: 50%; left: 30%; top: 32%; border-color: #f59e0b;">
+                    <div class="hud-tag-pill" style="background: #f59e0b;" id="cam2ReticleTag">Psylla Nymphs: 89.2%</div>
+                  </div>
+                </div>
+                <div class="sensor-filter-bar">
+                  <span style="font-size: 10px; color: var(--ink-muted); font-family: var(--font-mono); margin-right: 4px; align-self: center;">FILTER:</span>
+                  <button class="filter-btn-pill active" onclick="setCamFilter(2, 'rgb')">RGB</button>
+                  <button class="filter-btn-pill" onclick="setCamFilter(2, 'thermal')">Thermal IR</button>
+                  <button class="filter-btn-pill" onclick="setCamFilter(2, 'edge')">Edge Det</button>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Right Side: Solenoid Actuator & WhatsApp Advisory Dispatch -->
+        <div style="display: flex; flex-direction: column; gap: 20px;">
+          
+          <!-- 12V Solenoid Spot-Sprayer Manifold -->
+          <div class="curved-card">
+            <div class="card-title-bar">
+              <div class="card-title-heading">
+                <span>⚡ 12V Precision Solenoid Actuator</span>
+              </div>
+              <span class="hero-pill">1.50s Cut-Off</span>
+            </div>
+
+            <div class="actuator-soft-box">
+              <div class="actuator-status-row">
+                <div>
+                  <div style="font-size: 15.5px; font-weight: 800; color: var(--ink-hero);" id="lblValveStatus">VALVE: CLOSED</div>
+                  <div style="font-size: 13px; color: var(--ink-body);" id="lblValveNote">Healthy Canopy • Zero Chemical Wasted</div>
+                </div>
+                <span class="hero-pill orange" id="tagValveState">STANDBY</span>
+              </div>
+
+              <!-- Animated Spray Mist Canvas -->
+              <canvas class="fluid-spray-canvas" id="sprayCanvas"></canvas>
+
+              <!-- Live Tank Reservoir Indicator -->
+              <div class="tank-reservoir-card">
+                <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11px;">
+                  <span>CHEMICAL TANK: <strong>300L CAPACITY</strong></span>
+                  <span style="color: var(--blue-tech);" id="lblTankLevel">264L (88% FULL)</span>
+                </div>
+                <div class="tank-track">
+                  <div class="tank-fill-bar" id="tankFillBar"></div>
+                </div>
+              </div>
+
+              <div style="display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 11.5px; color: var(--ink-muted); border-top: 1px solid var(--border); padding-top: 10px;">
+                <span>TARGET DOSE: <strong>45 mL</strong></span>
+                <span>BURST TIME: <strong>1.50s</strong></span>
+                <span>PRESSURE: <strong>4.2 BAR</strong></span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Vernacular ICAR-CCRI Advisory Stream -->
+          <div class="curved-card">
+            <div class="card-title-bar">
+              <div class="card-title-heading">
+                <span>📱 ICAR-CCRI Advisory Stream</span>
+              </div>
+              <span class="hero-pill">Nagpur Mandarin Protocol</span>
+            </div>
+
+            <div class="advisory-bubble-card">
+              <div class="advisory-text-pad" id="advisoryTextContent">
+🚨 संत्रा बाग तातडीची सूचना (CITRUS-TERRA)
+📍 झाड आयडी: BLK_B_R04_T012 (काटोल, नागपूर)
+🔬 आढळलेला रोग: फायटोप्thoरा डिंक्या (Phytophthora Gummosis) - ९४% खात्री.
+⚡ कृती: १.५ सेकंद अचूक स्पॉट-फवारणी पूर्ण (४५ मि.ली. डोस).
+
+💊 ICAR-CCRI नागपूर प्रमाणित उपाय:
+१. खोडावरील डिंक खरवडून त्यावर १% बोर्डो पेस्ट (Bordeaux) लावा.
+२. मुळांजवळ कॉपर ऑक्सिक्लोराईड (२.५ ग्रॅम/लिटर) आळवणी करा.
+🌿 रासायनिक औषध बचत: ७२.४%!
+              </div>
+
+              <div style="display: flex; gap: 8px;">
+                <button class="btn btn-primary btn-sm" style="flex: 1;" id="btnCopyAlert">📋 Copy Alert</button>
+                <button class="btn btn-secondary btn-sm" id="btnOpenReport">📄 Export Report</button>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- =========================================================================
+         TAB 2: DUAL AI VISION LAB
+         ========================================================================= -->
+    <div class="tab-view-container" id="pane-ai-lab">
+      <div class="curved-card">
+        <div class="card-title-bar">
+          <div class="card-title-heading">
+            <span>🔬 Edge AI Computer Vision Laboratory</span>
+          </div>
+          <span class="hero-pill">Jetson Orin Nano (TensorRT FP16)</span>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+          <!-- Model 1 -->
+          <div class="curved-card" style="box-shadow: none; background: var(--surface-subtle);">
+            <div class="card-title-bar">
+              <span style="font-weight: 800; color: var(--red-alert);">MODEL 1: Trunk Collar Gummosis Detector</span>
+              <span class="hero-pill">YOLOv11n • 14.1ms</span>
+            </div>
+            <p style="font-size: 14px; color: var(--ink-body);">
+              Scans 0–40 cm bark collar for Phytophthora water-soaked lesions, bark cracking, and amber gum exudation.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-sm" onclick="setLabSample('severe')">Severe Gummosis (94%)</button>
+              <button class="btn btn-secondary btn-sm" onclick="setLabSample('early')">Early Lesion (88%)</button>
+              <button class="btn btn-secondary btn-sm" onclick="setLabSample('clean')">Clean Trunk (0%)</button>
+            </div>
+            <div style="height: 190px; position: relative; background: #000; border-radius: var(--radius-md); overflow: hidden;">
+              <img id="labImg1" src="cam_gummosis.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Gummosis Lab Sample">
+              <div class="laser-hud-reticle" id="labReticle1" style="width: 48%; height: 60%; left: 32%; top: 22%;">
+                <div class="hud-tag-pill" id="labReticle1Tag">Phytophthora: 94.4%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Model 2 -->
+          <div class="curved-card" style="box-shadow: none; background: var(--surface-subtle);">
+            <div class="card-title-bar">
+              <span style="font-weight: 800; color: var(--orange-primary);">MODEL 2: Under-Leaf Asian Citrus Psylla Detector</span>
+              <span class="hero-pill">YOLOv11s-OBB • 21.8ms</span>
+            </div>
+            <p style="font-size: 14px; color: var(--ink-body);">
+              Angled at +30° with diffuse LED illuminator to capture Asian Citrus Psylla (<em>Diaphorina citri</em>) nymphs and honeydew.
+            </p>
+            <div style="display: flex; gap: 8px; flex-wrap: wrap;">
+              <button class="btn btn-secondary btn-sm" onclick="setLabPsyllaSample('colony')">Psylla Colony (89%)</button>
+              <button class="btn btn-secondary btn-sm" onclick="setLabPsyllaSample('leafminer')">Leaf Miner (78%)</button>
+              <button class="btn btn-secondary btn-sm" onclick="setLabPsyllaSample('clean')">Clean Flush (0%)</button>
+            </div>
+            <div style="height: 190px; position: relative; background: #000; border-radius: var(--radius-md); overflow: hidden;">
+              <img id="labImg2" src="cam_psylla.jpg" style="width: 100%; height: 100%; object-fit: cover;" alt="Psylla Lab Sample">
+              <div class="laser-hud-reticle" id="labReticle2" style="width: 48%; height: 50%; left: 30%; top: 32%; border-color: #f59e0b;">
+                <div class="hud-tag-pill" style="background: #f59e0b;" id="labReticle2Tag">Psylla Nymphs: 89.2%</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         TAB 3: GROUND VS DRONE MATRIX
+         ========================================================================= -->
+    <div class="tab-view-container" id="pane-ground-drone">
+      <div class="curved-card">
+        <div class="card-title-bar">
+          <div class="card-title-heading">
+            <span>⚖️ Agronomic Benchmarking: Ground Rig vs Aerial Drones</span>
+          </div>
+          <span class="hero-pill">ICAR-CCRI Nagpur Validation</span>
+        </div>
+
+        <div class="table-curved-frame">
+          <table class="styled-matrix">
+            <thead>
+              <tr>
+                <th>Agronomic Parameter</th>
+                <th>Aerial Drone Approach (UAV)</th>
+                <th>CITRUS-TERRA Tractor Rig</th>
+                <th style="text-align: right;">Agronomic Verdict</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Under-Leaf Sucking Pests (Psylla, Whitefly)</strong></td>
+                <td class="lose-text">❌ 100% Blind (Top-down aerial angle cannot image leaf undersides)</td>
+                <td>✅ Upper +30° camera captures high-res under-leaf macro images</td>
+                <td style="text-align: right;"><span class="win-badge-pill">TRACTOR WINS</span></td>
+              </tr>
+              <tr>
+                <td><strong>Trunk Collar Gummosis (Phytophthora)</strong></td>
+                <td class="lose-text">❌ 100% Blocked by dense 3D canopy from above</td>
+                <td>✅ Lower -15° camera scans 0–40 cm bark collar directly at 60 FPS</td>
+                <td style="text-align: right;"><span class="win-badge-pill">TRACTOR WINS</span></td>
+              </tr>
+              <tr>
+                <td><strong>Spatial Tree Indexing in 5m Grid</strong></td>
+                <td class="lose-text">❌ Fails (Commercial GPS ±3–5m drift confuses adjacent trees)</td>
+                <td>✅ Wheel encoder + optical trunk sensor = Zero indexing drift</td>
+                <td style="text-align: right;"><span class="win-badge-pill">TRACTOR WINS</span></td>
+              </tr>
+              <tr>
+                <td><strong>Extreme Vidarbha 45°C Heat Tolerance</strong></td>
+                <td class="lose-text">❌ LiPo drone batteries overheat & swell above 42°C ambient</td>
+                <td>✅ Automotive electronics operate reliably up to 48°C</td>
+                <td style="text-align: right;"><span class="win-badge-pill">TRACTOR WINS</span></td>
+              </tr>
+              <tr>
+                <td><strong>Hardware Capital Cost (CapEx)</strong></td>
+                <td class="lose-text">❌ ₹8,00,000 to ₹12,00,000 (Requires licensed pilot)</td>
+                <td>✅ Under ₹35,000 (Mounts onto existing tractor/power-tiller)</td>
+                <td style="text-align: right;"><span class="win-badge-pill">96% COST CUT</span></td>
+              </tr>
+              <tr>
+                <td><strong>Targeted Spot-Spraying Efficacy</strong></td>
+                <td class="lose-text">❌ Aerial drift blown away by wind; poor under-canopy penetration</td>
+                <td>✅ Targeted 1.5s pulsed solenoid bursts directly into the infected branch</td>
+                <td style="text-align: right;"><span class="win-badge-pill">&gt;65% SAVINGS</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <!-- =========================================================================
+         TAB 4: FINANCIAL ROI CALCULATOR
+         ========================================================================= -->
+    <div class="tab-view-container" id="pane-roi-calc">
+      <div class="curved-card">
+        <div class="card-title-bar">
+          <div class="card-title-heading">
+            <span>💰 Farmer & FPO Economic Impact Model</span>
+          </div>
+          <span class="hero-pill">Vidarbha Citrus Belt Economics</span>
+        </div>
+
+        <div class="roi-grid-asym">
+          <div class="curved-card" style="box-shadow: none; background: var(--surface-subtle);">
+            <h3 style="font-size: 16px; font-weight: 800;">Orchard Operational Parameters</h3>
+
+            <div class="slider-round-card">
+              <div class="slider-title-line">
+                <span>Orchard Size:</span>
+                <span id="txtAcreVal" style="color: var(--orange-primary); font-weight: 700;">20 ACRES</span>
+              </div>
+              <input type="range" id="rangeAcres" min="5" max="100" value="20" step="5">
+            </div>
+
+            <div class="slider-round-card" style="margin-top: 18px;">
+              <div class="slider-title-line">
+                <span>Spray Cycles per Year:</span>
+                <span id="txtCycleVal" style="color: var(--orange-primary); font-weight: 700;">6 PASSES</span>
+              </div>
+              <input type="range" id="rangeCycles" min="3" max="10" value="6" step="1">
+            </div>
+
+            <div style="font-size: 13.5px; color: var(--ink-body); line-height: 1.6; margin-top: 16px; border-top: 1px solid var(--border); padding-top: 14px;">
+              • Standard blanket spray: <strong>₹1,800/acre/cycle</strong> in chemicals.<br>
+              • CITRUS-TERRA targeted spot-spray: <strong>₹500/acre/cycle</strong>.<br>
+              • FPO Custom Hiring Service Fee: <strong>₹250/acre/cycle</strong>.
+            </div>
+          </div>
+
+          <div class="roi-curved-banner">
+            <div>
+              <span class="hero-pill orange">ESTIMATED ANNUAL NET SAVINGS</span>
+              <div style="font-size: 46px; font-weight: 900; color: var(--orange-primary); font-family: var(--font-title); margin: 12px 0 6px 0;" id="lblNetSavings">
+                ₹1,76,000
+              </div>
+              <div style="font-size: 14.5px; color: var(--ink-hero); line-height: 1.65;">
+                • Chemical Waste Prevented: <strong id="lblChemSaved" style="color: var(--orange-primary);">1,560 Liters</strong><br>
+                • Phytophthora Tree Mortality: <strong>Reduced from 18% to &lt; 2.5%</strong><br>
+                • System Payback Period: <strong>Under 2.5 Months</strong>
+              </div>
+            </div>
+            <button class="btn btn-primary" style="align-self: flex-start; margin-top: 16px;" onclick="window.print()">🖨️ Export Financial Analysis</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Printable Report Modal -->
+  <div class="modal-backdrop-wrap" id="reportModal">
+    <div class="modal-curved-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 14px;">
+        <h2 style="font-family: var(--font-title); font-size: 19px; font-weight: 800;">📄 Field Inspection & Prescription Report</h2>
+        <button class="btn btn-secondary btn-sm" onclick="document.getElementById('reportModal').classList.remove('open')">✕ Close</button>
+      </div>
+      <div style="font-size: 14px; color: var(--ink-body); line-height: 1.7;">
+        <p><strong>Orchard:</strong> Katol Orange Block B (Vidarbha, Maharashtra)</p>
+        <p><strong>Inspection Date:</strong> 10-10-2026 • <strong>Tractor Speed:</strong> 6.2 km/h</p>
+        <p><strong>Total Inspected:</strong> 48 Trees (4 Rows × 12 Trees)</p>
+        <p><strong>Healthy Canopy:</strong> 44 Trees (91.7%) • <strong>Spray Skipped:</strong> 100%</p>
+        <p><strong>Targeted Spot-Sprayed:</strong> 4 Trees (8.3%) • <strong>Dose:</strong> 180 mL total</p>
+        <div style="margin-top: 14px; padding: 14px; background: var(--orange-tint); border: 1px solid var(--orange-ring); border-radius: var(--radius-md); color: var(--ink-hero);">
+          <strong>🚨 Actionable Directives:</strong><br>
+          1. <code>BLK_B_R04_T012</code>: Phytophthora Gummosis (94%). Apply 1% Bordeaux Paste.<br>
+          2. <code>BLK_B_R02_T005</code>: Asian Citrus Psylla (89%). Thiamethoxam 25% WG spot application.
+        </div>
+      </div>
+      <div style="display: flex; justify-content: flex-end; gap: 10px; border-top: 1px solid var(--border); padding-top: 14px;">
+        <button class="btn btn-secondary btn-sm" onclick="document.getElementById('reportModal').classList.remove('open')">Dismiss</button>
+        <button class="btn btn-primary btn-sm" onclick="window.print()">🖨️ Print / Save PDF</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rounded Footer Bar -->
+  <footer>
+    <div>CITRUS-TERRA AI • Ground-Level Non-Drone Cyber-Physical System for Nagpur Mandarin</div>
+    <div>ESP32 DevKit V4 • Jetson Orin Nano • ICAR-CCRI Nagpur Validated</div>
+  </footer>
+
+  <!-- =========================================================================
+       DYNAMIC JAVASCRIPT COCKPIT LOGIC
+       ========================================================================= -->
+  <script>
+    // Audio Synthesizer (Web Audio API)
+    let audioCtx = null;
+    let soundEnabled = true;
+
+    function initAudio() {
+      if (!audioCtx) {
+        audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+      }
+    }
+
+    function playBeep(freq = 1900, duration = 0.18) {
+      if (!soundEnabled) return;
+      try {
+        initAudio();
+        const osc = audioCtx.createOscillator();
+        const gain = audioCtx.createGain();
+        osc.type = 'sine';
+        osc.frequency.value = freq;
+        gain.gain.setValueAtTime(0.12, audioCtx.currentTime);
+        gain.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + duration);
+        osc.connect(gain);
+        gain.connect(audioCtx.destination);
+        osc.start();
+        osc.stop(audioCtx.currentTime + duration);
+      } catch (e) {}
+    }
+
+    // Voice Synthesizer (Web Speech API)
+    function announceVoice(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utter = new SpeechSynthesisUtterance(text);
+        utter.rate = 1.0;
+        utter.pitch = 1.0;
+        window.speechSynthesis.speak(utter);
+      }
+    }
+
+    // State Variables
+    let currentTreeIndex = 12;
+    const totalTrees = 48;
+    const infectedTrees = [5, 12, 23, 38];
+    let isRunning = true;
+    let isMarathi = true;
+    let isSpraying = false;
+    let runInterval = null;
+    let sprayTimeout = null;
+    let tractorDistance = 60.0;
+    let tractorSpeed = 6.2;
+    let remainingChemicalLiters = 264.0;
+
+    // Initialize 2D Orchard Matrix with Squircles
+    const soilPad = document.getElementById('orchardSoilPad');
+    function initOrchardMatrix() {
+      soilPad.innerHTML = '';
+      for (let r = 1; r <= 4; r++) {
+        const rowLane = document.createElement('div');
+        rowLane.className = 'orchard-row-lane';
+
+        const badge = document.createElement('div');
+        badge.className = 'row-lane-badge';
+        badge.textContent = `ROW 0${r}`;
+        rowLane.appendChild(badge);
+
+        const strip = document.createElement('div');
+        strip.className = 'trees-strip-lane';
+
+        for (let t = 1; t <= 12; t++) {
+          const globalId = (r - 1) * 12 + t;
+          const node = document.createElement('div');
+          node.className = 'tree-squircle-node';
+          node.id = `tree-unit-${globalId}`;
+          node.textContent = t;
+
+          if (infectedTrees.includes(globalId)) {
+            node.classList.add('infected');
+          } else {
+            node.classList.add('healthy');
+          }
+
+          if (globalId === currentTreeIndex) {
+            node.classList.add('tractor-on');
+          }
+
+          node.addEventListener('click', () => {
+            selectTree(globalId);
+          });
+
+          strip.appendChild(node);
+        }
+
+        rowLane.appendChild(strip);
+        soilPad.appendChild(rowLane);
+      }
+    }
+
+    function selectTree(id) {
+      document.querySelectorAll('.tree-squircle-node').forEach(n => n.classList.remove('tractor-on'));
+      currentTreeIndex = id;
+      const target = document.getElementById(`tree-unit-${id}`);
+      if (target) target.classList.add('tractor-on');
+
+      const rowNum = Math.ceil(id / 12);
+      const treeInRow = ((id - 1) % 12) + 1;
+      const treeIdStr = `BLK_B_R0${rowNum}_T${String(treeInRow).padStart(3, '0')}`;
+      
+      document.getElementById('valActiveCoord').textContent = treeIdStr;
+      document.getElementById('lblDossierId').textContent = treeIdStr;
+      
+      tractorDistance = id * 5.0;
+      document.getElementById('valDistance').textContent = tractorDistance.toFixed(1);
+
+      if (infectedTrees.includes(id)) {
+        document.getElementById('lblDossierHealth').textContent = id % 2 === 0 ? "Infected (Gummosis)" : "Infected (Psylla Nymphs)";
+        document.getElementById('lblDossierHealth').style.color = "var(--red-alert)";
+        document.getElementById('lblDossierDose').textContent = "45 mL Delivered";
+
+        if (id % 2 === 0) {
+          triggerSpray("Gummosis", 94);
+        } else {
+          triggerSpray("Psylla", 89);
+        }
+      } else {
+        document.getElementById('lblDossierHealth').textContent = "Optimal (Healthy Canopy)";
+        document.getElementById('lblDossierHealth').style.color = "var(--green-leaf)";
+        document.getElementById('lblDossierDose').textContent = "0 mL (Skipped)";
+        deactivateSpray();
+      }
+    }
+
+    function triggerSpray(type, conf) {
+      isSpraying = true;
+      playBeep(2200, 0.25);
+
+      // Decrement chemical tank
+      remainingChemicalLiters = Math.max(0, remainingChemicalLiters - 0.045);
+      const tankPct = Math.round((remainingChemicalLiters / 300) * 100);
+      document.getElementById('lblTankLevel').textContent = `${remainingChemicalLiters.toFixed(1)}L (${tankPct}% FULL)`;
+      document.getElementById('tankFillBar').style.width = `${tankPct}%`;
+
+      const tag = document.getElementById('tagValveState');
+      tag.textContent = 'BURSTING 1.5s';
+      tag.className = 'hero-pill orange';
+
+      document.getElementById('lblValveStatus').textContent = 'VALVE: OPEN (1.5s BURST)';
+      document.getElementById('lblValveStatus').style.color = 'var(--red-alert)';
+      document.getElementById('lblValveNote').textContent = `Targeted 45ml Solenoid Burst Delivered to ${type}`;
+
+      renderSprayFluid();
+
+      if (type === "Gummosis") {
+        document.getElementById('cam1StatusBadge').textContent = 'GUMMOSIS DETECTED';
+        document.getElementById('cam1StatusBadge').style.color = 'var(--red-alert)';
+        document.getElementById('cam1Reticle').style.borderColor = 'var(--red-alert)';
+      } else {
+        document.getElementById('cam2StatusBadge').textContent = 'PSYLLA COLONY';
+        document.getElementById('cam2StatusBadge').style.color = '#f59e0b';
+        document.getElementById('cam2Reticle').style.borderColor = '#f59e0b';
+      }
+
+      updateAdvisoryText(type, conf);
+
+      clearTimeout(sprayTimeout);
+      sprayTimeout = setTimeout(() => {
+        deactivateSpray();
+      }, 1500);
+    }
+
+    function deactivateSpray() {
+      isSpraying = false;
+      const tag = document.getElementById('tagValveState');
+      tag.textContent = 'STANDBY';
+      tag.className = 'hero-pill';
+
+      document.getElementById('lblValveStatus').textContent = 'VALVE: CLOSED';
+      document.getElementById('lblValveStatus').style.color = 'inherit';
+      document.getElementById('lblValveNote').textContent = 'Healthy Canopy • Zero Chemical Wasted (72% Saved)';
+      clearFluidCanvas();
+    }
+
+    // Camera Sensor Filter Switcher
+    function setCamFilter(camIndex, filterType) {
+      const img = document.getElementById(camIndex === 1 ? 'cam1Img' : 'cam2Img');
+      const container = img.closest('.sensor-view-card');
+      container.querySelectorAll('.filter-btn-pill').forEach(b => b.classList.remove('active'));
+      event.target.classList.add('active');
+
+      img.classList.remove('thermal-mode', 'edge-mode');
+      if (filterType === 'thermal') {
+        img.classList.add('thermal-mode');
+      } else if (filterType === 'edge') {
+        img.classList.add('edge-mode');
+      }
+    }
+
+    // Fluid Spray Mist Canvas Animation
+    const canvas = document.getElementById('sprayCanvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function renderSprayFluid() {
+      canvas.width = canvas.offsetWidth;
+      canvas.height = canvas.offsetHeight;
+      particles = [];
+      for (let i = 0; i < 40; i++) {
+        particles.push({
+          x: canvas.width / 2,
+          y: 6,
+          vx: (Math.random() - 0.5) * 9,
+          vy: Math.random() * 3.5 + 2,
+          radius: Math.random() * 2.4 + 1.2,
+          alpha: 1
+        });
+      }
+      animateFluid();
+    }
+
+    function clearFluidCanvas() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+
+    function animateFluid() {
+      if (!isSpraying) return;
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach(p => {
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(194, 65, 12, ${p.alpha})`;
+        ctx.fill();
+        p.x += p.vx;
+        p.y += p.vy;
+        p.alpha -= 0.025;
+        if (p.alpha <= 0) {
+          p.x = canvas.width / 2;
+          p.y = 6;
+          p.alpha = 1;
+        }
+      });
+      requestAnimationFrame(animateFluid);
+    }
+
+    function updateAdvisoryText(type, conf) {
+      const treeId = document.getElementById('valActiveCoord').textContent;
+      const textBox = document.getElementById('advisoryTextContent');
+
+      if (type.includes("Gummosis")) {
+        textBox.textContent = isMarathi ?
+`🚨 संत्रा बाग तातडीची सूचना (CITRUS-TERRA)
+📍 झाड आयडी: ${treeId} (काटोल, नागपूर)
+🔬 आढळलेला रोग: फायटोप्थोरा डिंक्या (Phytophthora Gummosis) - ${conf}% खात्री.
+⚡ कृती: १.५ सेकंद अचूक स्पॉट-फवारणी पूर्ण (४५ मि.ली. डोस).
+
+💊 ICAR-CCRI नागपूर प्रमाणित उपाय:
+१. खोडावरील डिंक खरवडून त्यावर १% बोर्डो पेस्ट (Bordeaux) लावा.
+२. मुळांजवळ कॉपर ऑक्सिक्लोराईड (२.५ ग्रॅम/लिटर) आळवणी करा.
+🌿 रासायनिक औषध बचत: ७२.४%!` :
+`🚨 CITRUS-TERRA HIGH PRIORITY PEST ADVISORY
+📍 Tree ID: ${treeId} | Block B
+🔬 Anomaly: Phytophthora Gummosis (Confidence: ${conf}%)
+⚡ Action: 1.5s Precision Spot-Spray Delivered (45ml).
+
+💊 ICAR-CCRI Recommended Action:
+1. Scrape gummy lesions and apply 1% Bordeaux Paste.
+2. Drench root basin with Copper Oxychloride (2.5g/L).
+🌿 Chemical Volume Saved: 72.4%!`;
+      } else {
+        textBox.textContent = isMarathi ?
+`🚨 संत्रा बाग तातडीची सूचना (CITRUS-TERRA)
+📍 झाड आयडी: ${treeId} (काटोल, नागपूर)
+🔬 आढळलेला कीटक: सायला (Asian Citrus Psylla Nymphs) - ${conf}% खात्री.
+⚡ कृती: १.५ सेकंद अचूक स्पॉट-फवारणी पूर्ण (४५ मि.ली. डोस).
+
+💊 ICAR-CCRI नागपूर प्रमाणित उपाय:
+१. थायामेथोक्साम २५% WG (०.३ ग्रॅम/लिटर) किंवा निंबोळी अर्क ५% फवारा.
+२. कोवळ्या पानांच्या खालच्या भागावर फवारणी पोहोचू द्या.
+🌿 रासायनिक औषध बचत: ७२.४%!` :
+`🚨 CITRUS-TERRA HIGH PRIORITY PEST ADVISORY
+📍 Tree ID: ${treeId} | Block B
+🔬 Anomaly: Asian Citrus Psylla Nymphs (Confidence: ${conf}%)
+⚡ Action: 1.5s Precision Spot-Spray Delivered (45ml).
+
+💊 ICAR-CCRI Recommended Action:
+1. Foliar spray of Thiamethoxam 25% WG (0.3g/L) or 5% Neem extract.
+2. Ensure spray targets under-leaf young flush.
+🌿 Chemical Volume Saved: 72.4%!`;
+      }
+    }
+
+    // Tabs Navigation (Pill Selector)
+    document.querySelectorAll('.tab-pill-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.tab-pill-btn').forEach(b => b.setAttribute('aria-selected', 'false'));
+        document.querySelectorAll('.tab-view-container').forEach(p => p.classList.remove('active'));
+
+        btn.setAttribute('aria-selected', 'true');
+        const targetId = `pane-${btn.dataset.tab}`;
+        const pane = document.getElementById(targetId);
+        if (pane) pane.classList.add('active');
+      });
+    });
+
+    // Theme Switcher
+    document.getElementById('btnThemeToggle').addEventListener('click', () => {
+      const html = document.documentElement;
+      const current = html.getAttribute('data-theme') || 'light';
+      const next = current === 'light' ? 'dark' : 'light';
+      html.setAttribute('data-theme', next);
+    });
+
+    // Language Toggle
+    document.getElementById('btnLangToggle').addEventListener('click', () => {
+      isMarathi = !isMarathi;
+      document.getElementById('btnLangToggle').textContent = isMarathi ? 'मराठी / EN' : 'EN / मराठी';
+      updateAdvisoryText("Gummosis", 94);
+    });
+
+    // Sound FX Toggle
+    document.getElementById('btnAudioFX').addEventListener('click', () => {
+      soundEnabled = !soundEnabled;
+      document.getElementById('btnAudioFX').textContent = soundEnabled ? '🔊 AUDIO ON' : '🔇 MUTED';
+    });
+
+    // Voice Brief Button
+    document.getElementById('btnVoiceAnnounce').addEventListener('click', () => {
+      const msg = isMarathi ? 
+        "संत्रा बाग सिट्रस-टेरा प्रणाली सक्रिय. झाड बी एल के बी आर ०४ वर फायटोप्थोरा डिंक्या आढळला. स्पॉट फवारणी पूर्ण." :
+        "Citrus-Terra active. Tree BLK_B_R04_T012 Phytophthora gummosis detected. 1.5 second precision spot spray delivered.";
+      announceVoice(msg);
+    });
+
+    // Copy Alert
+    document.getElementById('btnCopyAlert').addEventListener('click', () => {
+      const text = document.getElementById('advisoryTextContent').textContent;
+      navigator.clipboard.writeText(text);
+      const btn = document.getElementById('btnCopyAlert');
+      btn.textContent = '✅ Copied!';
+      setTimeout(() => {
+        btn.textContent = '📋 Copy Alert';
+      }, 2000);
+    });
+
+    // Modal Report
+    document.getElementById('btnOpenReport').addEventListener('click', () => {
+      document.getElementById('reportModal').classList.add('open');
+    });
+
+    // Simulation Controls
+    const btnPlay = document.getElementById('btnPlayPause');
+    btnPlay.addEventListener('click', () => {
+      isRunning = !isRunning;
+      if (isRunning) {
+        btnPlay.textContent = '⏸️ Pause Run';
+        document.getElementById('lblDeckStatus').textContent = 'AUTO-SCOUT ACTIVE';
+        startRunTimer();
+      } else {
+        btnPlay.textContent = '▶️ Resume Run';
+        document.getElementById('lblDeckStatus').textContent = 'SCOUT PAUSED';
+        clearInterval(runInterval);
+      }
+    });
+
+    document.getElementById('btnSimGummosis').addEventListener('click', () => {
+      triggerSpray("Gummosis", 95);
+    });
+
+    document.getElementById('btnSimPsylla').addEventListener('click', () => {
+      triggerSpray("Psylla Nymphs", 91);
+    });
+
+    document.getElementById('btnNextTree').addEventListener('click', () => {
+      advanceTractor();
+    });
+
+    function advanceTractor() {
+      currentTreeIndex = (currentTreeIndex % totalTrees) + 1;
+      selectTree(currentTreeIndex);
+    }
+
+    function startRunTimer() {
+      clearInterval(runInterval);
+      const delay = Math.round(25000 / tractorSpeed);
+      runInterval = setInterval(() => {
+        if (isRunning) advanceTractor();
+      }, delay);
+    }
+
+    // ROI Sliders
+    const rangeAcres = document.getElementById('rangeAcres');
+    const rangeCycles = document.getElementById('rangeCycles');
+    function updateRoi() {
+      const acres = parseInt(rangeAcres.value);
+      const cycles = parseInt(rangeCycles.value);
+      document.getElementById('txtAcreVal').textContent = `${acres} ACRES`;
+      document.getElementById('txtCycleVal').textContent = `${cycles} PASSES`;
+
+      const blanketCost = acres * cycles * 1800;
+      const precisionCost = acres * cycles * (500 + 250);
+      const netSavings = blanketCost - precisionCost;
+      const chemLiters = Math.round(acres * cycles * 13);
+
+      document.getElementById('lblNetSavings').textContent = `₹${netSavings.toLocaleString('en-IN')}`;
+      document.getElementById('lblChemSaved').textContent = `${chemLiters.toLocaleString('en-IN')} Liters`;
+    }
+    rangeAcres.addEventListener('input', updateRoi);
+    rangeCycles.addEventListener('input', updateRoi);
+
+    // AI Lab Sample Switchers
+    function setLabSample(type) {
+      const box = document.getElementById('labReticle1');
+      const tag = document.getElementById('labReticle1Tag');
+      if (type === 'severe') {
+        box.style.display = 'block';
+        tag.textContent = 'Phytophthora: 94.4%';
+      } else if (type === 'early') {
+        box.style.display = 'block';
+        tag.textContent = 'Early Lesion: 88.1%';
+      } else {
+        box.style.display = 'none';
+      }
+    }
+
+    function setLabPsyllaSample(type) {
+      const box = document.getElementById('labReticle2');
+      const tag = document.getElementById('labReticle2Tag');
+      if (type === 'colony') {
+        box.style.display = 'block';
+        tag.textContent = 'Psylla Nymphs: 89.2%';
+      } else if (type === 'leafminer') {
+        box.style.display = 'block';
+        tag.textContent = 'Leaf Miner: 78.5%';
+      } else {
+        box.style.display = 'none';
+      }
+    }
+
+    // Initialize Cockpit
+    initOrchardMatrix();
+    selectTree(currentTreeIndex);
+    startRunTimer();
+    updateRoi();
+  </script>
+</body>
+</html>

@@ -1,0 +1,132 @@
+================================================================================
+CITRUS-TERRA: WOKWI SIMULATION SETUP & DIAGRAM JSON
+Online Simulator: https://wokwi.com
+Target Board: ESP32 DevKit V4
+================================================================================
+
+HOW TO RUN THIS DEMO IN 1 MINUTE:
+1. Open https://wokwi.com/projects/new/esp32 in your browser.
+2. In the "diagram.json" tab, REPLACE all existing text with the JSON CODE below.
+3. In the "sketch.ino" tab, PASTE the code from "wokwi_sketch.ino".
+4. In the "Library Manager" (libraries.txt tab), paste these two lines:
+     Adafruit SSD1306
+     Adafruit GFX Library
+5. Click the green PLAY (Start Simulation) button!
+
+WHAT YOU CAN DO DURING SIMULATION:
+• Press the Red Pushbutton ("SIMULATE PEST") -> Triggers immediate pest alert, red LED,
+  cabin buzzer, 1.5s solenoid spray burst, and Marathi WhatsApp advisory!
+• Rotate the KY-040 Encoder -> Simulates tractor wheel odometry advancing down row.
+  Every 5 meters, it arrives at the next tree!
+• Move the HC-SR04 Distance Slider -> Detects tree trunk presence (< 140cm).
+• If left untouched -> Auto-cruise drives tractor smoothly down Row 04 at 6.2 km/h.
+
+================================================================================
+COPY EVERYTHING BELOW THIS LINE INTO "diagram.json" IN WOKWI:
+================================================================================
+{
+  "version": 1,
+  "author": "Antigravity AI - CITRUS-TERRA Project",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-esp32-devkit-c-v4",
+      "id": "esp",
+      "top": 100,
+      "left": 100,
+      "attrs": {}
+    },
+    {
+      "type": "board-ssd1306",
+      "id": "oled",
+      "top": -90,
+      "left": 100,
+      "attrs": { "i2cAddress": "0x3c" }
+    },
+    {
+      "type": "wokwi-hc-sr04",
+      "id": "tof_sensor",
+      "top": 20,
+      "left": 360,
+      "attrs": { "distance": "120" }
+    },
+    {
+      "type": "wokwi-ky-040",
+      "id": "wheel_encoder",
+      "top": 180,
+      "left": 360,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "spray_solenoid",
+      "top": -90,
+      "left": 360,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_disease",
+      "top": 80,
+      "left": -60,
+      "attrs": { "color": "red", "label": "PEST / GUMMOSIS" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led_healthy",
+      "top": 140,
+      "left": -60,
+      "attrs": { "color": "green", "label": "HEALTHY TREE" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "cabin_buzzer",
+      "top": 210,
+      "left": -60,
+      "attrs": { "volume": "0.3" }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn_disease_sim",
+      "top": 300,
+      "left": 115,
+      "attrs": { "color": "red", "label": "SIMULATE PEST" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+
+    [ "oled:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "oled:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "oled:SCL", "esp:22", "yellow", [ "v0" ] ],
+    [ "oled:SDA", "esp:21", "blue", [ "v0" ] ],
+
+    [ "tof_sensor:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "tof_sensor:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "tof_sensor:TRIG", "esp:5", "purple", [ "v0" ] ],
+    [ "tof_sensor:ECHO", "esp:18", "orange", [ "v0" ] ],
+
+    [ "wheel_encoder:GND", "esp:GND.2", "black", [ "v0" ] ],
+    [ "wheel_encoder:VCC", "esp:3V3", "red", [ "v0" ] ],
+    [ "wheel_encoder:CLK", "esp:19", "green", [ "v0" ] ],
+    [ "wheel_encoder:DT", "esp:23", "cyan", [ "v0" ] ],
+
+    [ "spray_solenoid:GND", "esp:GND.1", "black", [ "v0" ] ],
+    [ "spray_solenoid:VCC", "esp:5V", "red", [ "v0" ] ],
+    [ "spray_solenoid:IN", "esp:25", "magenta", [ "v0" ] ],
+
+    [ "led_disease:A", "esp:26", "red", [ "v0" ] ],
+    [ "led_disease:C", "esp:GND.1", "black", [ "v0" ] ],
+
+    [ "led_healthy:A", "esp:27", "green", [ "v0" ] ],
+    [ "led_healthy:C", "esp:GND.1", "black", [ "v0" ] ],
+
+    [ "cabin_buzzer:2", "esp:14", "red", [ "v0" ] ],
+    [ "cabin_buzzer:1", "esp:GND.1", "black", [ "v0" ] ],
+
+    [ "btn_disease_sim:1.l", "esp:13", "brown", [ "v0" ] ],
+    [ "btn_disease_sim:2.l", "esp:GND.1", "black", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
